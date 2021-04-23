@@ -1,4 +1,5 @@
 {
   "main.js": "render-page.js",
-  "render-page.js.map": "render-page.js.map"
+  "render-page.js.map": "render-page.js.map",
+  "static/portrait.png": "static/portrait-2b819a24019836d718adbd8cfce8948a.png"
 }
