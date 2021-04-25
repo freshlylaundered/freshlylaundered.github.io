@@ -2,68 +2,95 @@ import * as React from "react";
 import ReactRough, { Rectangle } from "react-rough";
 import { StaticImage } from "gatsby-plugin-image";
 import Button from "./button";
+import { navigate } from "gatsby";
+import portrait from "../images/portrait.png";
 
 const Header = () => {
-  const width = 670;
+  let width = 630;
   const height = 180;
+
+  const [dimensions, setDimensions] = React.useState({
+    height,
+    width,
+  });
+
+  React.useEffect(() => {
+    const calcWidth = () =>
+      Math.min(width, document.documentElement.clientWidth);
+    function handleResize() {
+      setDimensions({
+        height: document.documentElement.clientHeight,
+        width: calcWidth(),
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   const rough = (
     <div
       style={{
-        marginTop: "100px",
+        marginTop: 30,
       }}
     >
       <div
         style={{
           position: "relative",
-          width,
+          width: dimensions.width,
           height,
           display: "inline-block",
+          cursor: "pointer",
+        }}
+        onClick={() => {
+          navigate("/");
         }}
       >
-        <ReactRough height={height} width={width}>
-          {/* <Rectangle
-        x={15}
-        y={15}
-        width={180}
-        height={80}
-        bowing={5}
-        strokeWidth={4}
-        fill={"#333"}
-        fillWeight={4}
-        hachureGap={6}
-        fillStyle={"cross-hatch"}
-      /> */}
+        <div
+          style={{
+            position: "absolute",
+            top: 15,
+            left: 15,
+            width: dimensions.width - 30,
+            height: height - 30,
+            backgroundColor: "#aaa",
+            zIndex: -100,
+          }}
+        ></div>
+        <ReactRough height={height} width={dimensions.width} renderer="svg">
           <Rectangle
             x={15}
             y={15}
-            width={width - 30}
+            width={dimensions.width - 30}
             height={height - 30}
-            bowing={2}
-            fillStyle="solid"
-            fill={"#aaa"}
-            strokeWidth={4}
+            bowing={1}
+            fillStyle={"solid"}
+            // fill={"#aaa"}
+            strokeWidth={2}
             roughness={2}
           />
         </ReactRough>
-        <StaticImage
-          src="../images/portrait.png"
-          width={200}
-          height={200}
-          quality={95}
-          alt="Profile picture"
-          placeholder="blurred"
+
+        <div
           style={{
+            backgroundImage: `url(${portrait})`,
+            width: 200,
+            height: 200,
+            backgroundSize: "cover",
             position: "absolute",
             left: `30px`,
             bottom: "15px",
           }}
         />
+
         <div
           style={{
             position: "absolute",
-            right: "30px",
-            top: "20px",
+            right: "40px",
+            bottom: "20px",
             zIndex: 10,
             fontSize: 30,
             textAlign: "right",
@@ -78,9 +105,10 @@ const Header = () => {
         </div>
       </div>
 
-      <Button text="Projects" width={180} />
-      <Button text="Bio" />
-      <Button text="Resume" width={180} />
+      <Button text="Projects" link="projects" width={180} />
+      <Button text="Bio" link="bio" />
+      <Button text="Resume" link="resume" width={180} />
+      <Button text="Log" link="log" />
     </div>
   );
 

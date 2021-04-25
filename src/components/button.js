@@ -1,6 +1,8 @@
 import * as React from "react";
 import ReactRough, { Rectangle } from "react-rough";
 
+import { navigate } from "gatsby";
+
 const Button = ({ width = 120, height = 80, text, link }) => {
   return (
     <div
@@ -9,30 +11,22 @@ const Button = ({ width = 120, height = 80, text, link }) => {
         width,
         height,
         display: "inline-block",
+        cursor: "pointer",
+      }}
+      onClick={() => {
+        navigate("/" + link);
       }}
     >
-      <ReactRough height={height} width={width}>
-        {/* <Rectangle
-        x={15}
-        y={15}
-        width={180}
-        height={80}
-        bowing={5}
-        strokeWidth={4}
-        fill={"#333"}
-        fillWeight={4}
-        hachureGap={6}
-        fillStyle={"cross-hatch"}
-      /> */}
+      <ReactRough height={height} width={width} renderer="svg">
         <Rectangle
           x={15}
           y={15}
           width={width - 30}
           height={height - 30}
-          bowing={2}
+          bowing={1}
           fillStyle="solid"
           fill={"#aaa"}
-          strokeWidth={4}
+          strokeWidth={2}
           roughness={2}
         />
       </ReactRough>
