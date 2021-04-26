@@ -1,9 +1,10 @@
 backend:
   name: github
-  repo: thomaswang/gatsby-personal-starter-blog
+  repo: freshlylaundered/freshlylaundered.github.io
 
 media_folder: content/assets
 public_folder: ../assets
+publish_mode: editorial_workflow
 
 collections:
   - name: blog
