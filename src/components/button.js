@@ -17,6 +17,17 @@ const Button = ({ width = 120, height = 80, text, link }) => {
         navigate("/" + link);
       }}
     >
+      <div
+        style={{
+          position: "absolute",
+          top: 15,
+          left: 15,
+          width: width - 30,
+          height: height - 30,
+          backgroundColor: "#aaa",
+          zIndex: -100,
+        }}
+      ></div>
       <ReactRough height={height} width={width} renderer="svg">
         <Rectangle
           x={15}

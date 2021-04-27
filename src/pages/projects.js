@@ -1,10 +1,17 @@
 import * as React from "react";
 import Layout from "../components/layout";
+import Project from "../components/project";
 
 const Projects = ({ data, location }) => {
   //const siteTitle = data.site.siteMetadata?.title || `Title`;
 
-  return <Layout location={location}>these are my projects</Layout>;
+  return (
+    <Layout location={location}>
+      <Project height={500}>
+        <div>asspiss</div>
+      </Project>
+    </Layout>
+  );
 };
 
 export default Projects;
