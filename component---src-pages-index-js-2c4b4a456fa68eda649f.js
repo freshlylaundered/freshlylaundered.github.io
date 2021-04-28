@@ -1,0 +1,2 @@
+(self.webpackChunkgatsby_starter_blog=self.webpackChunkgatsby_starter_blog||[]).push([[678],{7704:function(e,t,a){"use strict";a.r(t);var l=a(7294),n=a(5737);t.default=function(){return l.createElement(n.Z,null,l.createElement("p",null,"I'm a Fullstack Developer living in Cambridge Massachusetts."),l.createElement("p",null,"I enjoy chess, handwriting, and crossword puzzles."),l.createElement("p",null,"You can contact me at jamespatrickleduc@gmail.com"))}}}]);
+//# sourceMappingURL=component---src-pages-index-js-2c4b4a456fa68eda649f.js.map
