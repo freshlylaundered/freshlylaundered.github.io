@@ -1,61 +1,17 @@
 import * as React from "react";
-import ReactRough, { Rectangle } from "react-rough";
 
-import { navigate } from "gatsby";
-
-const Button = ({ width = 120, height = 80, text, link }) => {
+const Button = ({ children }) => {
   return (
     <div
       style={{
-        position: "relative",
-        width,
-        height,
+        margin: "2px 25px",
         display: "inline-block",
+        fontWeight: 700,
+        textDecorationLine: "none !important",
         cursor: "pointer",
       }}
-      onClick={() => {
-        navigate("/" + link);
-      }}
     >
-      <div
-        style={{
-          position: "absolute",
-          top: 15,
-          left: 15,
-          width: width - 30,
-          height: height - 30,
-          backgroundColor: "#aaa",
-          zIndex: -100,
-        }}
-      ></div>
-      <ReactRough height={height} width={width} renderer="svg">
-        <Rectangle
-          x={15}
-          y={15}
-          width={width - 30}
-          height={height - 30}
-          bowing={1}
-          fillStyle="solid"
-          fill={"#aaa"}
-          strokeWidth={2}
-          roughness={2}
-        />
-      </ReactRough>
-
-      <div
-        style={{
-          position: "absolute",
-          left: 15,
-          width: width - 30,
-          textAlign: "center",
-          bottom: 25,
-          zIndex: 10,
-          fontSize: 20,
-          color: "#000",
-        }}
-      >
-        {text}
-      </div>
+      {children}
     </div>
   );
 };
