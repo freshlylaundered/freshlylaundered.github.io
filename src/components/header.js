@@ -2,7 +2,7 @@ import * as React from "react";
 import ReactRough, { Rectangle } from "react-rough";
 import Button from "./button";
 import { Link, navigate } from "gatsby";
-import portrait from "../images/portrait3.png";
+import portrait from "../images/portrait5.png";
 
 const Header = () => {
   let width = 630;
@@ -52,10 +52,10 @@ const Header = () => {
             style={{
               backgroundImage: `url(${portrait})`,
               width: 200,
-              height: 200,
+              height: 228,
               backgroundSize: "cover",
               position: "absolute",
-              left: `20px`,
+              left: `18px`,
               bottom: "20px",
             }}
           />
